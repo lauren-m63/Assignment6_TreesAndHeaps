@@ -1,11 +1,57 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class Heap_problem_3 {
 
+    public static void main(String[] args) {
+        System.out.println();
+
+    }// END MAIN
 
 
-    class Node{
+
+
+    /*
+CLASSES
+     */
+
+    class Huffman { // i guess i could just put this in given class i dont rlly need second but
+        Map<Character, Integer> freqMap = new HashMap<>();
+        Map<Character, String> codeMap = new HashMap<>();
+        private Node root;
+
+
+        /*
+        in here is where i need to do all the logic stuff so like
+        im going to loop through my array nad do the frequencies and then also put them in their hashmap
+        then build the tree and tehn i think ill do the binary in another class? or is that part of here
+        no i do it all in here okay
+         */
+
+
+        public void countFreq(String input) {
+            for (char c : input.toCharArray()) {
+                freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+            }
+        } // END COUNTFREQ
+
+        public void buildTree(){
+            PriorityQueue<Node> queue = new PriorityQueue<>((a,b) ->a.freq- b.freq);
+                        //  this is saying like add the smallest first
+        }
+
+
+
+
+
+
+    }// END HUFFMAN CLASS
+
+
+
+
+    class Node{ // just node class for object no logic in here
         char ch;
         Node left;
         Node right;
@@ -22,13 +68,6 @@ public class Heap_problem_3 {
         }
 
     } // END NODE CLASS
-
-    class Huffman {
-        Map<Character, Integer> freqMap = new HashMap<>();
-        Map<Character, String> codeMap = new HashMap<>();
-        private Node root;
-    }
-
 
 } // LAST BRACKET end class
 
