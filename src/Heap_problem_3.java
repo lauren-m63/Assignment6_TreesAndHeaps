@@ -2,6 +2,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+/*
+
+time complexity is O(m + n log n) where m is the length of the input string and n in the number of unique characters because
+you have to go through the tree to get the frequencies and add it
+to the map which touches each input every time (n), then you also have to insert and remove nodes into the min heap of which traversal
+takes log n but since you are doing it to every character input you are doing it n times
+so it is n log n
+
+space complexity is O(n) where n is the amount of unique characters in the given input string because every time
+you run the algorithm you store each character in the frequency map and in the priority queue, and in
+the tree. each of these would have at most n size in them since you are only putting each letter max once
+ */
+
 public class Heap_problem_3 {
 
     public static void main(String[] args) {
