@@ -18,20 +18,31 @@ the tree. each of these would have at most n size in them since you are only put
 public class Heap_problem_3 {
 
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println(" nothing in front of the letter is the (space) character");
+
 
         Heap_problem_3 outer = new Heap_problem_3();
         Huffman h = outer.new Huffman();
 
+        // firs tone
         String text = "hello world";
-
         h.countFreq(text);
         h.buildTree();
         h.generate();
-
         String encoded = h.makeString(text);
-
         h.print(encoded);
+
+
+        h.freqMap.clear();
+        h.codeMap.clear();
+
+        // second from slide
+        String text2 = "marcus fenix is a gear";
+        h.countFreq(text2);
+        h.buildTree();
+        h.generate();
+        String encoded2 = h.makeString(text2);
+        h.print(encoded2);
 
     }// END MAIN
 
