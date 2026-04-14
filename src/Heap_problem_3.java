@@ -7,6 +7,19 @@ public class Heap_problem_3 {
     public static void main(String[] args) {
         System.out.println();
 
+        Heap_problem_3 outer = new Heap_problem_3();
+        Huffman h = outer.new Huffman();
+
+        String text = "hello world";
+
+        h.countFreq(text);
+        h.buildTree();
+        h.generate();
+
+        String encoded = h.makeString(text);
+
+        h.print(encoded);
+
     }// END MAIN
 
 
@@ -58,8 +71,11 @@ CLASSES
         /*
         now generating the binary codes by going through each node in the tree and addig either 0 or 1
          */
-
+        public void generate(){
+            buildCode(root, "");
+        }
         public void buildCode(Node node, String code){
+
             if (node == null) return;
 
             if (node.left==null && node.right==null){
@@ -84,6 +100,20 @@ CLASSES
         } // END MAKESTRING
 
 
+        public void print(String input){
+            System.out.println("frequency");
+            for (var c: freqMap.entrySet()){
+                System.out.println(c.getKey()+" "+c.getValue());
+            }
+            System.out.println("codes");
+            for (var c: codeMap.entrySet()){
+                System.out.println(c.getKey()+" "+c.getValue());
+            }
+
+            System.out.println("encoded");
+            System.out.println((input));
+
+        }
 
 
 
