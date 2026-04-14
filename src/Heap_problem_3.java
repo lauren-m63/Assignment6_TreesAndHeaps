@@ -1,7 +1,33 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Heap_problem_3 {
 
 
 
+    class Node{
+        char ch;
+        Node left;
+        Node right;
+        int freq;
+        public Node(char ch, int freq){
+            this.ch = ch;
+            this.freq = freq;
+        }
+        Node(int freq, Node left, Node right){
+            this.freq = freq;
+            this.left = left;
+            this.right = right;
+            this.ch = '\0';
+        }
+
+    } // END NODE CLASS
+
+    class Huffman {
+        Map<Character, Integer> freqMap = new HashMap<>();
+        Map<Character, String> codeMap = new HashMap<>();
+        private Node root;
+    }
 
 
 } // LAST BRACKET end class
@@ -65,6 +91,15 @@ okay but eveyrtime i ask for the smallest two i add them together and that is th
 all the parents represent the childrens total because its supposed to be like this subtree has this many occurences
 
 then larer that parent node will be compared with the other nodes so itll end up being the sum of whats under it
+because when you compare the smaller numbers those are the ones that are more rare
+when you combine them they get pushed down one more level in the tree because you have them straight,
+then you combine now they have a parent and they are below that parent = one level deeper
+since they are now deeper in the tree they will be givne longer codes when we do that later whcih is good bc they are more rare
+if you didnt add them you wouldnt know how often that subtree appears so you dont know how important it is
 
-
+now i have my tree so i have to generate the code
+so im going to traverse the tree in preorder maybe? and when i go left i add a 0 and everytime i go right i add 1
+so i dont even i would start at the root and then jut visit every node
+only when you hit a leaf node do you actually store the binary code though because the other ones are
+just saying how much work to do but the leaf is the actual character
  */
