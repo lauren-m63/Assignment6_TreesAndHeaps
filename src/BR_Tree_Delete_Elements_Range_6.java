@@ -17,6 +17,24 @@ public class BR_Tree_Delete_Elements_Range_6 {
 
      */
 
+    /*
+    time complexity is
+
+
+    space complexity is
+     */
+
+    public static void main (String[] args) {
+
+        System.out.println();
+
+
+
+    }// END MAIN
+
+
+
+
 
     public class deletNode{
 
@@ -46,10 +64,23 @@ public class BR_Tree_Delete_Elements_Range_6 {
                 return deleteRange(root.left,a,b);
             }
 
-            root.left = deleteRange(root.left,a,b);
+            root.left = deleteRange(root.left,a,b);// if it is in the range then im going to delete it per instructions
             root.right = deleteRange(root.right,a,b);
 
+            // children
+            // for the current node you have to remove it by putting children together
+            if (root.left == null ){
+                return root.right;
+            }
+            if (root.right == null){
+                return root.left;
+            }
+
+
             Node minNode = findMin(root.right);
+            root.val = minNode.val;
+            root.right = deleteRange(root.right,minNode.val, minNode.val);
+
 
 
             return root;
@@ -67,8 +98,6 @@ public class BR_Tree_Delete_Elements_Range_6 {
 
 
 
-
-
     class Node {
         int val;
         Node left, right;
@@ -77,5 +106,8 @@ public class BR_Tree_Delete_Elements_Range_6 {
             this.val = val;
         }
     }// END NODE CLASS
+
+
+
 
 } // LAST BRACKET END CLASS
