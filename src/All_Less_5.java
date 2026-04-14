@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class All_Less_5 {
 
     /*
@@ -23,6 +26,24 @@ public class All_Less_5 {
 
 
 
+    public static List<String> allLess(String[] heap, int x){
+
+        List<String> result = new ArrayList<>();
+
+        if (heap == null || heap.length == 0){
+            return result;
+        }
+        for (String item : heap){
+            if (item.length() < x && item!=null){
+                result.add(item);
+            }
+        }
+        return result;
+    } // END ALLLESS method
+
+    public static void main(String []args){
+
+    }
 
 
 
