@@ -38,9 +38,50 @@ CLASSES
 
         public void buildTree(){
             PriorityQueue<Node> queue = new PriorityQueue<>((a,b) ->a.freq- b.freq);
-                        //  this is saying like add the smallest first
-        }
+                        //  this is saying like add the smallest first so you put it like smallest first so theyre in order
+            //              this is jsut ordering them so when yu add it to the queue thats the ordering
+            for (Map.Entry<Character, Integer> entry : freqMap.entrySet()) {
+                queue.add(new Node(entry.getKey(), entry.getValue())); // im adding it to the queue but as a mpa entry so it adds the key value pair in the queue
+                // it is also creatying a node to put into the heap queue so its a node with a map in the queue
+            }
+            while(queue.size()>1){ // now i am building the tree by taking the smallest two in the queue and making a new parent for them each time
+                // until the queue just has te one left then i put it back into the heap
+                Node left = queue.poll();
+                Node right = queue.poll();
 
+                Node parent = new Node(left.freq +right.freq, left, right);
+                queue.add(parent); // putting back in the heap
+            }
+            root = queue.poll(); // the last node left will be the highest and the most used aharacters so it makes that node the entire tree it is the root
+        }// END BUILD TREE
+
+        /*
+        now generating the binary codes by going through each node in the tree and addig either 0 or 1
+         */
+
+        public void buildCode(Node node, String code){
+            if (node == null) return;
+
+            if (node.left==null && node.right==null){
+                // if a leaf
+                codeMap.put(node.ch, code);
+                return;
+            }
+            buildCode(node.left,code + "0");
+            buildCode(node.right,code + "1");
+        } // END BUILD CODE
+
+
+        // now makign the string to retun
+
+        public String makeString(String input){
+            //char[] chars = input.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            for (char c : input.toCharArray()) {
+                sb.append(codeMap.get(c));
+            }
+            return sb.toString();
+        } // END MAKESTRING
 
 
 
