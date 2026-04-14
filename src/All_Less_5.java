@@ -43,6 +43,15 @@ public class All_Less_5 {
 
     public static void main(String []args){
 
+        String[] s = {"zero", " size", "nutella", "jojo", "luna", "isse", "astor", "as", "entretien", "", "cal"};
+        int x = 3;
+
+        List<String> result = allLess(s, x);
+
+       // String s1 = "zero", " size", "nutella", "jojo", "luna", "isse", "astor", "as", "entretien", “”, "cal";
+
+
+        System.out.println(result);
     }
 
 
