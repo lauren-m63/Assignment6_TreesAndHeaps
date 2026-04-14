@@ -16,4 +16,66 @@ public class BR_Tree_Delete_Elements_Range_6 {
 
 
      */
-}
+
+
+    public class deletNode{
+
+        private Node findMin (Node node){
+            while (node.left != null){
+                node = node.left;
+            }
+            return node;
+        }// END FINDMIN METHOD
+
+
+
+        public Node deleteRange (Node root, int a , int b){
+
+
+            if (root == null){
+                return null;
+            }
+            if (b > a){
+                return null;
+            }
+
+            if (root.val<a ){
+                return deleteRange(root.right,a,b); // if small then i skip the left bc outo f range
+            }
+            if (root.val>b ){ // same but too big so skipping right bc b is the bigger one
+                return deleteRange(root.left,a,b);
+            }
+
+            root.left = deleteRange(root.left,a,b);
+            root.right = deleteRange(root.right,a,b);
+
+            Node minNode = findMin(root.right);
+
+
+            return root;
+
+
+
+        }// END DELETERANGE METHOD
+
+
+
+
+
+    } // END DELETENODE CLASS
+
+
+
+
+
+
+    class Node {
+        int val;
+        Node left, right;
+
+        Node(int val) {
+            this.val = val;
+        }
+    }// END NODE CLASS
+
+} // LAST BRACKET END CLASS
