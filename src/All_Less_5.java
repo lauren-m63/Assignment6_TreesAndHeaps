@@ -24,6 +24,13 @@ public class All_Less_5 {
      */
 
 
+    /*
+
+    time complexity is O(n) where n is the number of elemnts in the given input array because everytime you run the algorithm each element is visited one time when you check its length
+
+    space complexity is O(n) where n is the number of strings that are less than the input number x because everytime you run the algorithm you are storing the strings that are less than x in an output list
+
+     */
 
 
     public static List<String> allLess(String[] heap, int x){
@@ -34,7 +41,7 @@ public class All_Less_5 {
             return result;
         }
         for (String item : heap){
-            if (item.length() < x && item!=null){
+            if ( item!=null && item.length() < x){
                 result.add(item);
             }
         }
