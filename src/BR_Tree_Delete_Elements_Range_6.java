@@ -22,13 +22,33 @@ public class BR_Tree_Delete_Elements_Range_6 {
 
 
 
-    space complexity is O(n) where n is the height of the tree because everytime you run the algorithm it recusrivley calls itself to go down just the one path of the tree at a time so each time the loop runs it does one subtree so the max work it will do with each call would be the highest depth of the tree
+    space complexity is O(n) where n is the height of the tree because everytime you run the algorithm it recusrivley calls itself to go down just the one path of the tree at a time so each time the call runs it does one subtree so the max work it will do with each call would be the highest depth of the tree
      */
 
     public static void main (String[] args) {
 
         System.out.println();
 
+        BR_Tree_Delete_Elements_Range_6 outer =
+                new BR_Tree_Delete_Elements_Range_6();
+        Node root = outer.new Node(30);
+        root.left = outer.new Node(20);
+        root.right = outer.new Node(50);
+        root.left.left = outer.new Node(10);
+        root.left.right = outer.new Node(25);
+        root.right.left = outer.new Node(42);
+        root.right.right = outer.new Node(77);
+
+        deleteNode d = outer.new deleteNode();
+
+
+        System.out.println("Original Tree (inorder):");
+        System.out.println(root);
+
+
+        root = d.deleteRange(root, 25, 60);
+        System.out.println("\nAfter deleting [25, 60]:");
+        System.out.println(root); // this is printing the name instead of actual value or node its jsut the obej reference rn
 
 
     }// END MAIN
@@ -37,7 +57,7 @@ public class BR_Tree_Delete_Elements_Range_6 {
 
 
 
-    public class deletNode{
+    public class deleteNode{
 
         private Node findMin (Node node){
             while (node.left != null){
@@ -54,8 +74,8 @@ public class BR_Tree_Delete_Elements_Range_6 {
             if (root == null){
                 return null;
             }
-            if (b > a){
-                return null;
+            if (a > b){
+                return root;
             }
 
             if (root.val<a ){
