@@ -18,10 +18,11 @@ public class BR_Tree_Delete_Elements_Range_6 {
      */
 
     /*
-    time complexity is
+    time complexity is O(n) where n is the number of nodes because everytime you run the algorithm you visit each node once to check the value and then potential perform delete operation on it
 
 
-    space complexity is
+
+    space complexity is O(n) where n is the height of the tree because everytime you run the algorithm it recusrivley calls itself to go down just the one path of the tree at a time so each time the loop runs it does one subtree so the max work it will do with each call would be the highest depth of the tree
      */
 
     public static void main (String[] args) {
